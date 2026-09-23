@@ -78,7 +78,7 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent; /* মোবাইলে টাচ করার সময় নীল বক্স বা হাইলাইট দূর করবে */
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -528,6 +528,49 @@
             width: 120px;
         }
 
+        /* Super Large & Extra Wide Gallery Click Hint Badge Styles */
+        .gallery-click-hint {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: 3px solid #ffffff;
+            color: #ffffff;
+            padding: 16px 50px;
+            border-radius: 50px;
+            font-size: 26px;
+            font-weight: 800;
+            margin-top: -30px;
+            margin-bottom: 45px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.5);
+            animation: bounceArrow 1.4s infinite alternate;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 450px;
+            letter-spacing: 1px;
+        }
+
+        .gallery-click-hint:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 65, 108, 0.7);
+        }
+
+        @keyframes bounceArrow {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(6px); }
+        }
+
+        .gallery-click-hint i {
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
         /* Modern Card Style */
         .modern-card {
             background: var(--card-bg);
@@ -752,15 +795,15 @@
 
         .teacher-role {
             font-weight: 600;
-            color: #38bdf8; /* হালকা আকাশী কালার */
+            color: #38bdf8;
             font-size: 15px;
             margin-bottom: 15px;
             line-height: 1.4;
-            border: 2px dashed #38bdf8; /* হালকা আকাশী কালার বর্ডার */
+            border: 2px dashed #38bdf8;
             padding: 6px 10px;
             border-radius: 8px;
             background: rgba(56, 189, 248, 0.05);
-            display: inline-block; /* লেখার সাইজ অনুযায়ী ছোট বর্ডার হবে */
+            display: inline-block;
         }
 
         .teacher-card p {
@@ -858,7 +901,7 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             padding: 8px;
-            -webkit-overflow-scrolling: touch; /* মোবাইলে সোয়াইপ স্মুথ করার জন্য */
+            -webkit-overflow-scrolling: touch;
         }
 
         .gallery-img-wrapper::-webkit-scrollbar {
@@ -1514,11 +1557,16 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="section">
+    <section id="gallery" class="section" style="text-align: center;">
         <div class="container">
-            <h2 class="section-title anim-up" id="galleryToggleTitle">স্কুল গ্যালারি</h2>
+            <h2 class="section-title anim-up" id="galleryToggleTitle" style="display: inline-block; margin-bottom: 20px;">স্কুল গ্যালারি</h2>
+            <div>
+                <span class="gallery-click-hint" id="galleryToggleHint">
+                    Click <i class="fa-solid fa-arrow-down"></i>
+                </span>
+            </div>
             
-            <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-grid" id="galleryGrid" style="text-align: left;">
                 
                 <div class="gallery-item anim-left" data-index="0">
                     <div class="gallery-img-wrapper">
@@ -1808,16 +1856,23 @@
             });
         });
 
-        // Toggle Gallery Options on Clicking Title
+        // Toggle Gallery Options on Clicking Title or Hint Button
         const galleryToggleTitle = document.getElementById('galleryToggleTitle');
+        const galleryToggleHint = document.getElementById('galleryToggleHint');
         const galleryGrid = document.getElementById('galleryGrid');
 
-        galleryToggleTitle.addEventListener('click', () => {
+        function toggleGallery() {
             galleryGrid.classList.toggle('active');
             if (galleryGrid.classList.contains('active')) {
                 galleryGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                galleryToggleHint.innerHTML = 'Close <i class="fa-solid fa-arrow-up"></i>';
+            } else {
+                galleryToggleHint.innerHTML = 'Click <i class="fa-solid fa-arrow-down"></i>';
             }
-        });
+        }
+
+        galleryToggleTitle.addEventListener('click', toggleGallery);
+        galleryToggleHint.addEventListener('click', toggleGallery);
 
         // Gallery Image Slider / Lightbox Script
         const galleryItems = document.querySelectorAll('.gallery-item');
@@ -1888,4 +1943,4 @@
         });
     </script>
 </body>
-        </html>
+    </html>
