@@ -442,6 +442,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             background: var(--primary-color);
             color: #ffffff;
@@ -451,12 +452,19 @@
             border-radius: 35px;
             transition: var(--transition);
             box-shadow: 0 6px 20px rgba(11, 105, 163, 0.35);
+            border: none;
+            cursor: pointer;
+            width: auto;
         }
 
         .btn:hover {
             background: var(--primary-hover);
             transform: translateY(-4px) scale(1.03);
             box-shadow: 0 10px 25px rgba(11, 105, 163, 0.5), 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
+        .btn-full {
+            width: 100%;
         }
 
         .btn-outline {
@@ -472,7 +480,15 @@
             border-color: #ffffff;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
+        .btn-wa {
+            background: #25d366;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
 
+        .btn-wa:hover {
+            background: #1ebe5d;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+        }
         /* Section Common Styles & Scroll Animation Classes */
         .section {
             padding: 90px 0;
@@ -481,19 +497,19 @@
         .anim-left {
             opacity: 0;
             transform: translateX(-50px);
-            transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .anim-right {
             opacity: 0;
             transform: translateX(50px);
-            transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .anim-up {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .anim-left.visible, .anim-right.visible, .anim-up.visible {
@@ -528,7 +544,7 @@
             width: 120px;
         }
 
-        /* Super Large & Extra Wide Gallery Click Hint Badge Styles */
+        /* Gallery Click Hint Badge Styles */
         .gallery-click-hint {
             display: inline-flex;
             justify-content: center;
@@ -859,6 +875,113 @@
             line-height: 1.7;
         }
 
+        /* Admission Section Modern Styling */
+        .admission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: start;
+        }
+
+        .admission-info, .admission-form-card {
+            padding: 35px;
+        }
+
+        .admission-info h3, .admission-form-card h3 {
+            font-size: 22px;
+            color: var(--title-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admission-info h3 i {
+            color: var(--primary-color);
+        }
+
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .check-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-color);
+            font-size: 14px;
+        }
+
+        .admission-deadline {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .form-hint {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        #inquiryForm label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--title-color);
+            font-size: 15px;
+        }
+
+        #inquiryForm input, 
+        #inquiryForm select, 
+        #inquiryForm textarea {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 18px;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            background: var(--bg-gradient);
+            color: var(--text-color);
+            font-size: 15px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        #inquiryForm input:focus, 
+        #inquiryForm select:focus, 
+        #inquiryForm textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+            background: var(--card-bg);
+        }
+
+        .form-error {
+            color: #ef4444;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
         /* Gallery Section Styling */
         .gallery-grid {
             display: none;
@@ -883,7 +1006,6 @@
             box-shadow: var(--shadow);
             background: var(--card-bg);
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -920,10 +1042,11 @@
             border-radius: 12px;
             scroll-snap-align: start;
             transition: transform 0.5s ease;
+            cursor: pointer;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .gallery-img-wrapper img:hover {
+            transform: scale(1.03);
         }
 
         .gallery-caption {
@@ -1144,6 +1267,68 @@
             line-height: 1.6;
         }
 
+        /* Contact Action Buttons (Call & WhatsApp) */
+        .phone-link {
+            color: #38bdf8;
+            font-size: 19px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .phone-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .contact-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .mini-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            background: #334155;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            touch-action: manipulation;
+        }
+
+        .mini-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+
+        .mini-btn.mini-wa {
+            background: #25d366;
+            border-color: #25d366;
+        }
+
+        .mini-btn.mini-wa:hover {
+            background: #1ebe5d;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        .mini-btn:not(.mini-wa):hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
         /* Developed By Badge Styles */
         .developer-badge-container {
             display: flex;
@@ -1236,38 +1421,65 @@
                 display: block;
             }
 
+            body {
+                padding-top: 66px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
             .header-container {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 12px 15px;
-                gap: 12px;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-between;
+                padding: 8px 12px;
+                gap: 8px;
                 position: relative;
             }
 
             .logo {
                 justify-content: flex-start;
-                width: 100%;
+                flex: 1;
+                min-width: 0;
+                gap: 10px;
             }
 
             .logo-text h1 {
-                font-size: 22px; 
+                font-size: 16px;
+                line-height: 1.3;
             }
 
             .logo-text p {
-                font-size: 14px;
+                font-size: 12px;
+                line-height: 1.3;
             }
 
             .logo-img {
-                width: 50px;
-                height: 50px;
+                width: 44px;
+                height: 44px;
+                flex-shrink: 0;
             }
 
             .nav-right {
                 display: flex;
                 justify-content: flex-end;
-                width: 100%;
-                border-top: 1px solid var(--card-border);
-                padding-top: 10px;
+                width: auto;
+                flex-shrink: 0;
+                gap: 8px;
+                border-top: none;
+                padding-top: 0;
+            }
+
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+            }
+
+            .menu-toggle {
+                font-size: 22px;
+                padding: 4px;
             }
 
             nav ul {
@@ -1320,6 +1532,20 @@
             .prev-btn { left: 10px; }
             .next-btn { right: 10px; }
         }
+
+        /* Reduced Motion Support (accessibility) */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .anim-left, .anim-right, .anim-up {
+                opacity: 1;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1368,6 +1594,7 @@
                     <li><a href="#principal" class="nav-link">প্রধান শিক্ষক</a></li>
                     <li><a href="#teachers" class="nav-link">শিক্ষক</a></li>
                     <li><a href="#academics" class="nav-link">একাডেমিক</a></li>
+                    <li><a href="#admission" class="nav-link">ভর্তি</a></li>
                     <li><a href="#gallery" class="nav-link">গ্যালারি</a></li>
                     <li><a href="#contact" class="nav-link">যোগাযোগ</a></li>
                 </ul>
@@ -1388,7 +1615,7 @@
                 <i class="fa-solid fa-graduation-cap"></i> ২০১৩ সাল থেকে শিক্ষার পথে
             </div>
             <h2 id="typing-heading"></h2>
-            <p>গুণগত শিক্ষা, আধুনিক প্রযুক্তি ও নৈতিক মূল্যবোধের সমন্বয়ে আমরা গড়ে তুলি একটি আলোকিত ভবিষ্যৎ।</p>
+            <p>গুণগত শিক্ষা, আধুনিক প্রযুক্তি ও নৈতিক মূল্যবোধের সমন্বয়ে আমরা গড়ে তুলি একটি আলোকিত ভবিষ্যৎ।</p>
             <div class="hero-buttons">
                 <a href="#about" class="btn">আরও জানুন <i class="fa-solid fa-arrow-down"></i></a>
                 <a href="#contact" class="btn btn-outline">যোগাযোগ করুন <i class="fa-solid fa-phone"></i></a>
@@ -1401,7 +1628,7 @@
         <div class="container">
             <h2 class="section-title anim-up">আমাদের সম্পর্কে</h2>
             <div class="modern-card about-card anim-left">
-                <p>অরবিট ইন্টারন্যাশনাল স্কুল প্রতিষ্ঠিত হয় <strong>২০১৩</strong> সালে। প্রতিষ্ঠার পর থেকেই এই প্রতিষ্ঠানটি মানসম্মত শিক্ষা প্রদানের মাধ্যমে এলাকার অন্যতম সেরা শিক্ষাপ্রতিষ্ঠান হিসেবে নিজেদের প্রতিষ্ঠিত করেছে। আমাদের লক্ষ্য হলো শিক্ষার্থীদের শুধুমাত্র পাঠ্যপুস্তকগত জ্ঞানে সীমাবদ্ধ না রেখে, তাদের মননশীলতা, সৃজনশীলতা এবং নৈতিক চরিত্র গঠনে সহায়তা করা। অভিজ্ঞ ও যত্নশীল শিক্ষকমণ্ডলীর তত্ত্বাবধানে আমাদের প্রতিটি শিক্ষার্থী এগিয়ে চলেছে আত্মবিশ্বাসের সাথে।</p>
+                <p>অরবিট ইন্টারন্যাশনাল স্কুল প্রতিষ্ঠিত হয় <strong>২০১৩</strong> সালে। প্রতিষ্ঠার পর থেকেই এই প্রতিষ্ঠানটি মানসম্মত শিক্ষা প্রদানের মাধ্যমে এলাকার অন্যতম সেরা শিক্ষাপ্রতিষ্ঠান হিসেবে নিজেদের প্রতিষ্ঠিত করেছে। আমাদের লক্ষ্য হলো শিক্ষার্থীদের শুধুমাত্র পাঠ্যপুস্তকগত জ্ঞানে সীমাবদ্ধ না রেখে, তাদের মননশীলতা, সৃজনশীলতা এবং নৈতিক চরিত্র গঠনে সহায়তা করা। অভিজ্ঞ ও যত্নশীল শিক্ষকমণ্ডলীর তত্ত্বাবধানে আমাদের প্রতিটি শিক্ষার্থী এগিয়ে চলেছে আত্মবিশ্বাসের সাথে।</p>
             </div>
 
             <div class="stats-grid">
@@ -1434,7 +1661,7 @@
                 <div class="founder-text anim-right">
                     <h3>মো:শাহাজাদা খান</h3>
                     <p class="designation">প্রতিষ্ঠাতা ও সভাপতি, অরবিট ইন্টারন্যাশনাল স্কুল</p>
-                    <p>"অরবিট ইন্টারন্যাশনাল স্কুল প্রতিষ্ঠার পেছনে মূল লক্ষ্য ছিল এলাকার কোমলমতি শিশুদের মাঝে আধুনিক ও নৈতিক শিক্ষাদানের একটি আদর্শ প্ল্যাটফর্ম তৈরি করা। শুরু থেকেই শিক্ষক, শিক্ষার্থী ও অভিভাবকদের সম্মিলিত প্রচেষ্টায় এই প্রতিষ্ঠান আজ একটি সফল রূপ লাভ করেছে। আমরা বিশ্বাস করি সঠিক শিক্ষা ও সুযোগ পেলে আমাদের প্রতিটি শিক্ষার্থী দেশের সম্পদে পরিণত হবে।"</p>
+                    <p>"অরবিট ইন্টারন্যাশনাল স্কুল প্রতিষ্ঠার পেছনে মূল লক্ষ্য ছিল এলাকার কোমলমতি শিশুদের মাঝে আধুনিক ও নৈতিক শিক্ষাদানের একটি আদর্শ প্ল্যাটফর্ম তৈরি করা। শুরু থেকেই শিক্ষক, শিক্ষার্থী ও অভিভাবকদের সম্মিলিত প্রচেষ্টায় এই প্রতিষ্ঠান আজ একটি সফল রূপ লাভ করেছে। আমরা বিশ্বাস করি সঠিক শিক্ষা ও সুযোগ পেলে আমাদের প্রতিটি শিক্ষার্থী দেশের সম্পদে পরিণত হবে।"</p>
                 </div>
             </div>
         </div>
@@ -1443,13 +1670,13 @@
     <!-- Principal Message Section -->
     <section id="principal" class="section">
         <div class="container">
-            <h2 class="section-title anim-up">প্রধান শিক্ষীকার বাণী</h2>
+            <h2 class="section-title anim-up">প্রধান শিক্ষিকার বাণী</h2>
             <div class="modern-card principal-card">
-                <img src="shakila.png" alt="প্রধান শিক্ষীকা" class="principal-img anim-right">
+                <img src="shakila.png" alt="প্রধান শিক্ষিকা" class="principal-img anim-right">
                 <div class="principal-text anim-left">
                     <h3>শাকিলা আক্তার</h3>
-                    <p class="designation">প্রধান শিক্ষীকা, অরবিট ইন্টারন্যাশনাল স্কুল</p>
-                    <p>"শিক্ষা জাতির মেরুদণ্ড এবং সঠিক শিক্ষা ছাড়া কোনো জাতি সামনে এগোতে পারে না। আমাদের প্রতিষ্ঠান শিক্ষার্থীদের মাঝে সব সময়ই সেই আলোর প্রদীপ জ্বেলে আসছে। আমরা বিশ্বাস করি প্রতিটি শিশুই অনন্য এবং তাদের রয়েছে সুপ্ত প্রতিভা। সঠিক পরিবেশ ও নির্দেশনার মাধ্যমে তাদের সেই প্রতিভাকে বিকশিত করাই আমাদের মূল ব্রত। অভিভাবকদের সহযোগিতা ও শিক্ষকদের ঐকান্তিক প্রচেষ্টায় আমরা একটি সফল প্রজন্ম গড়ে তুলতে বদ্ধপরিকর।"</p>
+                    <p class="designation">প্রধান শিক্ষিকা, অরবিট ইন্টারন্যাশনাল স্কুল</p>
+                    <p>"শিক্ষা জাতির মেরুদণ্ড এবং সঠিক শিক্ষা ছাড়া কোনো জাতি সামনে এগোতে পারে না। আমাদের প্রতিষ্ঠান শিক্ষার্থীদের মাঝে সব সময়ই সেই আলোর প্রদীপ জ্বেলে আসছে। আমরা বিশ্বাস করি প্রতিটি শিশুই অনন্য এবং তাদের রয়েছে সুপ্ত প্রতিভা। সঠিক পরিবেশ ও নির্দেশনার মাধ্যমে তাদের সেই প্রতিভাকে বিকশিত করাই আমাদের মূল ব্রত। অভিভাবকদের সহযোগিতা ও শিক্ষকদের ঐকান্তিক প্রচেষ্টায় আমরা একটি সফল প্রজন্ম গড়ে তুলতে বদ্ধপরিকর।"</p>
                 </div>
             </div>
         </div>
@@ -1465,56 +1692,54 @@
                     <img src="mithun.jpg" alt="মিঠুন ডি রোজারিও" class="teacher-avatar">
                     <h3><strong>মিঠুন ডি রোজারিও</strong></h3>
                     <p class="teacher-role">সিনিয়র শিক্ষক (গণিত)</p>
-                    <p>গণিত বিভাগে ১০ বছরেরও বেশি অভিজ্ঞতার মাধ্যমে শিক্ষার্থীদের সহজ উপায়ে গণিত পাঠদান করে আসছেন।</p>
+                    <p>গণিত বিভাগে ১০ বছরেরও বেশি অভিজ্ঞতার মাধ্যমে শিক্ষার্থীদের সহজ উপায়ে গণিত পাঠদান করে আসছেন।</p>
                 </div>
-
+                <div class="modern-card teacher-card anim-right">
+                    <img src="manoj.jpg" alt="মনোজ" class="teacher-avatar">
+                    <h3><strong>মনোজ কুমার</strong></h3>
+                    <p class="teacher-role">সিনিয়র শিক্ষক (বাংলা,মানবিক)</p>
+                    <p>বাংলা ভাষা ও সাহিত্য এবং মানবিক বিষয়ে পাঠদানে দক্ষ শিক্ষক, যিনি সহজ ও আকর্ষণীয় উপায়ে শিক্ষার্থীদের মনে দেশপ্রেম ও মানবিক মূল্যবোধ জাগিয়ে তুলতে সচেষ্ট।</p>
+                </div>
                 <div class="modern-card teacher-card anim-up">
                     <img src="rasel.jpg" alt="মো: রাসেল শেখ" class="teacher-avatar">
                     <h3><strong>মো: রাসেল শেখ</strong></h3>
-                    <p class="teacher-role">সিনিয়র শিক্ষক (হিসাববিজ্ঞান,ব্যবসায় উদ্যোগ,ফিন্যান্স ও ব্যাংকিং)</p>
-                    <p>ব্যবসায় শিক্ষা শাখার বিষয়সমূহে অত্যন্ত দক্ষ ও অভিজ্ঞ, যিনি শিক্ষার্থীদের বাস্তবমুখী জ্ঞান ও বিশ্লেষণী ক্ষমতায় পারদর্শী করে তোলেন।</p>
+                    <p class="teacher-role">সিনিয়র শিক্ষক (হিসাববিজ্ঞান,ব্যবসায় উদ্যোগ,ফিন্যান্স ও ব্যাংকিং)</p>
+                    <p>ব্যবসায় শিক্ষা শাখার বিষয়সমূহে অত্যন্ত দক্ষ ও অভিজ্ঞ, যিনি শিক্ষার্থীদের বাস্তবমুখী জ্ঞান ও বিশ্লেষণী ক্ষমতায় পারদর্শী করে তোলেন।</p>
                 </div>
 
                 <div class="modern-card teacher-card anim-right">
                     <img src="tuhin.jpg" alt="মো:তুহিন হোসাইন" class="teacher-avatar">
                     <h3><strong>মো:তুহিন হোসাইন</strong></h3>
-                    <p class="teacher-role">সিনিয়র শিক্ষক (ইংরেজি)</p>
+                    <p class="teacher-role">সিনিয়র শিক্ষক (ইংরেজি)</p>
                     <p>ইংরেজি ভাষা ও সাহিত্য শিক্ষাদানে দক্ষ এবং শিক্ষার্থীদের স্পিকিং ও গ্রামারে পারদর্শী করে তোলেন।</p>
                 </div>
 
                 <div class="modern-card teacher-card anim-left">
                     <img src="nasima.jpg" alt="নাসিমা বেগম" class="teacher-avatar">
                     <h3><strong>নাসিমা বেগম</strong></h3>
-                    <p class="teacher-role">সিনিয়র শিক্ষীকা (বাংলা,ধর্ম, মানবিক)</p>
-                    <p>নৈতিক মূল্যবোধ ও ধর্মীয় শিক্ষাদানের মাধ্যমে শিক্ষার্থীদের চরিত্র গঠনে গুরুত্বপূর্ণ ভূমিকা পালন করছেন।</p>
+                    <p class="teacher-role">সিনিয়র শিক্ষিকা (বাংলা,ধর্ম, মানবিক)</p>
+                    <p>নৈতিক মূল্যবোধ ও ধর্মীয় শিক্ষাদানের মাধ্যমে শিক্ষার্থীদের চরিত্র গঠনে গুরুত্বপূর্ণ ভূমিকা পালন করছেন।</p>
                 </div>
 
                 <div class="modern-card teacher-card anim-up">
                     <img src="ashraf.jpg" alt="মো:আশরাফুল ইসলাম" class="teacher-avatar">
                     <h3><strong>মো:আশরাফুল ইসলাম</strong></h3>
                     <p class="teacher-role">সহকারী শিক্ষক (বিজ্ঞান)</p>
-                    <p>গণিত, পদার্থবিজ্ঞান ও রসায়ন বিষয়ে বিশেষ পারদর্শী। শিক্ষার্থীদের সহজ ও বাস্তব উদাহরণের মাধ্যমে বিষয়গুলো শেখাতে আগ্রহী।</p>
+                    <p>গণিত, পদার্থবিজ্ঞান ও রসায়ন বিষয়ে বিশেষ পারদর্শী। শিক্ষার্থীদের সহজ ও বাস্তব উদাহরণের মাধ্যমে বিষয়গুলো শেখাতে আগ্রহী।</p>
                 </div>
 
                 <div class="modern-card teacher-card anim-right">
                     <img src="trishna.jpg" alt="তৃষ্ণা রানি" class="teacher-avatar">
                     <h3><strong>তৃষ্ণা রানি</strong></h3>
-                    <p class="teacher-role">সহকারী শিক্ষীকা (বিজ্ঞান,ইংরেজি)</p>
-                    <p>বিজ্ঞান ও ইংরেজি বিষয়ে পাঠদানে বিশেষ পারদর্শী, যা শিক্ষার্থীদের পঠন ও গবেষণায় আগ্রহী করে তোলে।</p>
+                    <p class="teacher-role">সহকারী শিক্ষিকা (বিজ্ঞান,ইংরেজি)</p>
+                    <p>বিজ্ঞান ও ইংরেজি বিষয়ে পাঠদানে বিশেষ পারদর্শী, যা শিক্ষার্থীদের পঠন ও গবেষণায় আগ্রহী করে তোলে।</p>
                 </div>
 
                 <div class="modern-card teacher-card anim-left">
                     <img src="sabbir.jpg" alt="মো: সাব্বির হোসাইন শাকিব" class="teacher-avatar">
                     <h3><strong>মো: সাব্বির হোসাইন শাকিব</strong></h3>
                     <p class="teacher-role">সহকারী শিক্ষক (গণিত)</p>
-                    <p>গণিত বিষয়ে অত্যন্ত নিবেদিতপ্রাণ শিক্ষক, যিনি সহজ উপায়ে জটিল গাণিতিক সমস্যার সমাধান শিখিয়ে থাকেন।</p>
-                </div>
-
-                <div class="modern-card teacher-card anim-right">
-                    <img src="tania.png" alt="তানিয়া" class="teacher-avatar">
-                    <h3><strong>তানিয়া</strong></h3>
-                    <p class="teacher-role">সহকারী শিক্ষীকা (বাংলা,মানবিক)</p>
-                    <p>বাংলা ভাষা ও সাহিত্য এবং মানবিক বিষয়ে পাঠদানে দক্ষ শিক্ষিকা, যিনি সহজ ও আকর্ষণীয় উপায়ে শিক্ষার্থীদের মনে দেশপ্রেম ও মানবিক মূল্যবোধ জাগিয়ে তুলতে সচেষ্ট।</p>
+                    <p>গণিত বিষয়ে অত্যন্ত নিবেদিতপ্রাণ শিক্ষক, যিনি সহজ উপায়ে জটিল গাণিতিক সমস্যার সমাধান শিখিয়ে থাকেন।</p>
                 </div>
 
             </div>
@@ -1529,28 +1754,28 @@
                 <div class="modern-card academic-box anim-left">
                     <i class="fa-solid fa-book-open"></i>
                     <h3>পাঠ্যক্রম ও সিলেবাস</h3>
-                    <p>জাতীয় শিক্ষাক্রমের আলোকে যুগোপযোগী ও মানসম্মত সিলেবাস অনুসরণ করা হয়।</p>
+                    <p>জাতীয় শিক্ষাক্রমের আলোকে যুগোপযোগী ও মানসম্মত সিলেবাস অনুসরণ করা হয়।</p>
                 </div>
                 <div class="modern-card academic-box anim-up">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <h3>অভিজ্ঞ শিক্ষক</h3>
-                    <p>সুশিক্ষিত, দক্ষ ও যত্নশীল শিক্ষকমণ্ডলী দ্বারা নিয়মিত পাঠদান পরিচালিত হয়।</p>
+                    <p>সুশিক্ষিত, দক্ষ ও যত্নশীল শিক্ষকমণ্ডলী দ্বারা নিয়মিত পাঠদান পরিচালিত হয়।</p>
                 </div>
                 <div class="modern-card academic-box anim-right">
                     <i class="fa-solid fa-video"></i>
-                    <h3>শীতাতপ নিয়ন্ত্রিত ক্লাসরুম ও সার্বক্ষণিক সিসি ক্যামেরা মনিটরিং</h3>
-                    <p>শিক্ষার্থীদের আরামদায়ক শিক্ষার পরিবেশ নিশ্চিত করতে ক্লাসরুমগুলো শীতাতপ নিয়ন্ত্রিত এবং সার্বক্ষণিক সিসি ক্যামেরার আওতাভুক্ত।</p>
+                    <h3>শীতাতপ নিয়ন্ত্রিত ক্লাসরুম ও সার্বক্ষণিক সিসি ক্যামেরা মনিটরিং</h3>
+                    <p>শিক্ষার্থীদের আরামদায়ক শিক্ষার পরিবেশ নিশ্চিত করতে ক্লাসরুমগুলো শীতাতপ নিয়ন্ত্রিত এবং সার্বক্ষণিক সিসি ক্যামেরার আওতাভুক্ত।</p>
                 </div>
                 <div class="modern-card academic-box anim-left">
                     <i class="fa-solid fa-clock"></i>
-                    <h3>স্কুল শিফ্ট ও সময়সূচি</h3>
-                    <p><strong>মর্নিং শিফট:</strong> সকাল ৮:০০টা - ১১:০০টা (প্লে - ৩য় শ্রেণি)</p>
+                    <h3>স্কুল শিফ্ট ও সময়সূচি</h3>
+                    <p><strong>মর্নিং শিফট:</strong> সকাল ৮:০০টা - ১১:০০টা (প্লে - ৩য় শ্রেণি)</p>
                     <p style="margin-top: 8px;"><strong>ডে শিফট:</strong> সকাল ১১:০০টা - দুপুর ৩:০০টা (৪র্থ - ১০ম শ্রেণি)</p>
                 </div>
                 <div class="modern-card academic-box anim-right">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <h3>স্কুল শেষে কোচিং</h3>
-                    <p>শিক্ষার্থীদের বাড়তি যত্ন ও মেধা বিকাশের জন্য স্কুল ছুটির পর নিয়মিত বিশেষ কোচিং ক্লাসের সুব্যবস্থা রয়েছে।</p>
+                    <p>শিক্ষার্থীদের বাড়তি যত্ন ও মেধা বিকাশের জন্য স্কুল ছুটির পর নিয়মিত বিশেষ কোচিং ক্লাসের সুব্যবস্থা রয়েছে।</p>
                 </div>
             </div>
         </div>
@@ -1568,7 +1793,7 @@
             
             <div class="gallery-grid" id="galleryGrid" style="text-align: left;">
                 
-                <div class="gallery-item anim-left" data-index="0">
+                <div class="gallery-item anim-left">
                     <div class="gallery-img-wrapper">
                         <img src="school.jpg" alt="স্কুল ক্যাম্পাস ১" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=School+Campus+1'">
                         <img src="campus2.jpg" alt="স্কুল ক্যাম্পাস ২" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=School+Campus+2'">
@@ -1576,7 +1801,7 @@
                     <div class="gallery-caption">স্কুল ক্যাম্পাস</div>
                 </div>
 
-                <div class="gallery-item anim-up" data-index="1">
+                <div class="gallery-item anim-up">
                     <div class="gallery-img-wrapper">
                         <img src="class4.jpg" alt="শ্রেণীকক্ষ ১" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Classroom+1'">
                         <img src="class1.jpg" alt="শ্রেণীকক্ষ ২" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Classroom+2'">
@@ -1589,17 +1814,17 @@
                     <div class="gallery-caption">আনন্দমুখর শ্রেণীকক্ষ</div>
                 </div>
 
-                <div class="gallery-item anim-right" data-index="2">
+                <div class="gallery-item anim-right">
                     <div class="gallery-img-wrapper">
                         <img src="sport1.jpg" alt="খেলাধুলা ১" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Sports+1'">
                         <img src="sport2.jpg" alt="খেলাধুলা ২" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Sports+2'">
                         <img src="sport3.jpg" alt="খেলাধুলা ৩" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Sports+3'">
                         <img src="sport4.jpg" alt="খেলাধুলা ৪" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Sports+4'">
                     </div>
-                    <div class="gallery-caption">বার্ষিক ক্রীড়া ও সাংস্কৃতিক অনুষ্ঠান</div>
+                    <div class="gallery-caption">বার্ষিক ক্রীড়া ও সাংস্কৃতিক অনুষ্ঠান</div>
                 </div>
 
-                <div class="gallery-item anim-up" data-index="3">
+                <div class="gallery-item anim-up">
                     <div class="gallery-img-wrapper">
                         <img src="p2.jpg" alt="বিশেষ ইভেন্ট ১" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Event+1'">
                         <img src="p3.jpg" alt="বিশেষ ইভেন্ট ২" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Event+2'">
@@ -1628,6 +1853,62 @@
         <div class="modal-caption" id="modalCaption"></div>
     </div>
 
+    <!-- Admission Section -->
+    <section id="admission" class="section">
+        <div class="container">
+            <h2 class="section-title anim-up">ভর্তি তথ্য</h2>
+            <div class="admission-grid">
+
+                <div class="modern-card admission-info anim-left">
+                    <h3><i class="fa-solid fa-circle-info"></i> ভর্তির নিয়ম</h3>
+                    <ul class="check-list">
+                        <li>প্লে থেকে ১০ম শ্রেণি পর্যন্ত ভর্তি নেওয়া হয়।</li>
+                        <li>সরাসরি স্কুল অফিসে এসে অথবা ফোন/WhatsApp-এ যোগাযোগ করে ভর্তি প্রক্রিয়া শুরু করা যায়।</li>
+                        <li>ভর্তি ফি ও মাসিক বেতনের তথ্য জানতে অফিসে যোগাযোগ করুন।</li>
+                    </ul>
+
+                    <h3><i class="fa-solid fa-file-lines"></i> প্রয়োজনীয় কাগজপত্র</h3>
+                    <ul class="check-list">
+                        <li>জন্ম নিবন্ধন সনদের ফটোকপি</li>
+                        <li>শিক্ষার্থীর পাসপোর্ট সাইজ ছবি</li>
+                        <li>পূর্বের স্কুলের ছাড়পত্র ও ফলাফল (প্রযোজ্য হলে)</li>
+                        <li>অভিভাবকের জাতীয় পরিচয়পত্রের ফটোকপি</li>
+                    </ul>
+
+                    <p class="admission-deadline" id="admissionDeadline"></p>
+                </div>
+
+                <div class="modern-card admission-form-card anim-right">
+                    <h3><i class="fa-solid fa-paper-plane"></i> ভর্তি ইনকোয়ারি</h3>
+                    <p class="form-hint">তথ্য দিলে WhatsApp-এ আমাদের কাছে মেসেজ তৈরি হয়ে যাবে।</p>
+                    <form id="inquiryForm" novalidate>
+                        <label for="inqName">অভিভাবকের নাম</label>
+                        <input type="text" id="inqName" name="name" required autocomplete="name" placeholder="আপনার নাম লিখুন">
+
+                        <label for="inqPhone">মোবাইল নম্বর</label>
+                        <input type="tel" id="inqPhone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
+
+                        <label for="inqClass">কোন শ্রেণিতে ভর্তি করাতে চান?</label>
+                        <select id="inqClass" name="class" required>
+                            <option value="">শ্রেণি নির্বাচন করুন</option>
+                            <option>প্লে</option><option>নার্সারি</option><option>কেজি</option>
+                            <option>১ম শ্রেণি</option><option>২য় শ্রেণি</option><option>৩য় শ্রেণি</option>
+                            <option>৪র্থ শ্রেণি</option><option>৫ম শ্রেণি</option><option>৬ষ্ঠ শ্রেণি</option>
+                            <option>৭ম শ্রেণি</option><option>৮ম শ্রেণি</option><option>৯ম শ্রেণি</option>
+                            <option>১০ম শ্রেণি</option>
+                        </select>
+
+                        <label for="inqMsg">অতিরিক্ত বার্তা (ঐচ্ছিক)</label>
+                        <textarea id="inqMsg" name="message" rows="3" placeholder="কিছু বলার থাকলে লিখুন..."></textarea>
+
+                        <p class="form-error" id="formError" role="alert"></p>
+                        <button type="submit" class="btn btn-full btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp-এ পাঠান</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
@@ -1637,12 +1918,16 @@
                 <div class="contact-item anim-left">
                     <i class="fa-solid fa-location-dot"></i>
                     <h3>ঠিকানা</h3>
-                    <p>স্বাধীনতা স্বরণী জামে মসজিদ এর বিপরীত পাশে<br>স্বাধীনতা স্বরণী রোড<br>উত্তর বাড্ডা,ঢাকা-১২১২</p>
+                    <p>স্বাধীনতা স্বরণী জামে মসজিদ এর বিপরীত পাশে<br>স্বাধীনতা স্বরণী রোড<br>উত্তর বাড্ডা, ঢাকা-১২১২</p>
                 </div>
                 <div class="contact-item anim-right">
                     <i class="fa-solid fa-phone-volume"></i>
                     <h3>ফোন নম্বর</h3>
-                    <p>+৮৮০ ১৯৩৮৪০৯৯৯১</p>
+                    <p><a href="tel:+8801938409991" class="phone-link">+৮৮০ ১৯৩৮৪০৯৯৯১</a></p>
+                    <div class="contact-actions">
+                        <a href="tel:+8801938409991" class="mini-btn"><i class="fa-solid fa-phone"></i> কল</a>
+                        <a href="https://wa.me/8801938409991" target="_blank" rel="noopener" class="mini-btn mini-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    </div>
                 </div>
             </div>
 
@@ -1874,8 +2159,32 @@
         galleryToggleTitle.addEventListener('click', toggleGallery);
         galleryToggleHint.addEventListener('click', toggleGallery);
 
-        // Gallery Image Slider / Lightbox Script
-        const galleryItems = document.querySelectorAll('.gallery-item');
+        // Admission Form WhatsApp Integration Script
+        const inquiryForm = document.getElementById('inquiryForm');
+        const formError = document.getElementById('formError');
+
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('inqName').value.trim();
+            const phone = document.getElementById('inqPhone').value.trim();
+            const className = document.getElementById('inqClass').value;
+            const message = document.getElementById('inqMsg').value.trim();
+
+            if (!name || !phone || !className) {
+                formError.innerText = "দয়া করে নাম, মোবাইল নম্বর এবং শ্রেণি পূরণ করুন।";
+                formError.classList.add('show');
+                return;
+            }
+            formError.classList.remove('show');
+
+            const whatsappNumber = "8801938409991"; // স্কুলের WhatsApp নম্বর
+            const text = `আসসালামু আলাইকুম,%0aআমার নাম: ${encodeURIComponent(name)}%0aমোবাইল: ${encodeURIComponent(phone)}%0aভর্তি হতে ইচ্ছুক শ্রেণি: ${encodeURIComponent(className)}%0a${message ? 'বার্তা: ' + encodeURIComponent(message) : ''}`;
+            
+            window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+        });
+
+        // Fixed Gallery Image Slider / Lightbox Script (All Images Clickable)
+        const allGalleryImages = document.querySelectorAll('.gallery-img-wrapper img');
         const imageModal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const modalCaption = document.getElementById('modalCaption');
@@ -1886,15 +2195,14 @@
         let currentIndex = 0;
         const galleryData = [];
 
-        galleryItems.forEach((item, index) => {
-            const img = item.querySelector('img');
-            const caption = item.querySelector('.gallery-caption');
+        allGalleryImages.forEach((img, index) => {
+            const captionText = img.closest('.gallery-item').querySelector('.gallery-caption').innerText;
             galleryData.push({
                 src: img.src,
-                caption: caption.innerText
+                caption: `${captionText} (${index + 1})`
             });
 
-            item.addEventListener('click', () => {
+            img.addEventListener('click', () => {
                 currentIndex = index;
                 updateModalContent();
                 imageModal.classList.add('active');
